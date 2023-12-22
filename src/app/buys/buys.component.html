@@ -1,0 +1,32 @@
+<h2>Lista de compras</h2>
+<table class="table table-striped">
+<thead class="table-dark">
+    <tr>
+        <th>Id</th>
+        <th class="text-center">Cliente</th>
+        <th class="text-center">Tipo Documento</th>
+        <th class="text-center">N° Documento</th>
+        <th class="text-center">Fecha</th>
+        
+    
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor= "let compra of compras">
+    <td>{{compra.id}}</td> 
+    <td class="text-center">{{compra.clientName}}</td>  
+    <td class="text-center">{{compra.idType}}</td> 
+    <td class="text-center">{{compra.dni}}</td> 
+    <td class="text-center">{{compra.date}}</td> 
+    <!-- <td> <button (click)="obtenerCompras(compra.id)" class="btn btn-info">Comprar</button>
+    <button (click)="eliminarProducto(producto.id)" class="btn btn-danger"  style="margin-left: 10px;">Eliminar</button>
+    <button (click)="detallesProducto(producto.id)" class="btn btn-primary"  style="margin-left: 10px;">Detalles</button>
+    
+    </td> -->
+    </tr>
+</tbody>
+
+</table>
+
+
+ 

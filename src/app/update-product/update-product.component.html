@@ -1,0 +1,120 @@
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center">Actualización de producto</h3>
+    <form (ngSubmit)="onSubmit()" #productoForm= "ngForm">
+        <div class="form-group">
+            <label>Producto :</label>
+            <input type="text" 
+            class="form-control" 
+            id = "producto"
+            [(ngModel)]="producto.name"
+            name = "name"
+            required
+            minlength="4"
+            maxlength="15"
+            placeholder ="Escriba el nombre del producto :"
+            #name = "ngModel"
+            >
+            <div class="alert alert-danger" *ngIf= "name.invalid && (name.dirty || name.touched )">
+                <div *ngIf= "name.errors.required">
+                    El nombre del productodebe tener como minimo 4 caracteres
+                </div>
+                
+
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <label>Cantidad disponible :</label>
+            <input type="text" 
+            class="form-control" 
+            id = "cantidad"
+            [(ngModel)]="producto.inInventory"
+            name = "inInventory"
+            required
+            minlength="1"
+            maxlength="10"
+            placeholder ="Escriba la cantidad disponible en numeros :"
+            #inInventory = "ngModel"
+            >
+            <div class="alert alert-danger" *ngIf= "inInventory.invalid && (inInventory.dirty || inInventory.touched )">
+                <div *ngIf= "inInventory.errors.required">
+                    Se debe agregar almenos un producto
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <label>Habilitado :</label>
+            <input type="text" 
+            class="form-control" 
+            id = "habilitado"
+            [(ngModel)]="producto.enabled"
+            name = "enabled"
+            required
+            minlength="4"
+            maxlength="5"
+            placeholder ="true o false de acuerdo a la disponibilidad del producto:"
+            #enabled = "ngModel"
+            >
+            <div class="alert alert-danger" *ngIf= "enabled.invalid && (enabled.dirty || enabled.touched )">
+                <div *ngIf= "enabled.errors.required">
+                    Solo se acepta "true" o "false"
+                </div>
+              
+
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <label>Minimo :</label>
+            <input type="text" 
+            class="form-control" 
+            id = "minimo"
+            [(ngModel)]="producto.min"
+            name = "min"
+            required
+            minlength="1"
+            maxlength="10"
+            placeholder ="La cantidad minima en inventario:"
+            #min = "ngModel"
+            >
+            <div class="alert alert-danger" *ngIf= "min.invalid && (min.dirty || min.touched )">
+                <div *ngIf= "max.errors.required">
+                    Se debe tener al menos un producto de este tipo
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <label>Maximo :</label>
+            <input type="text" 
+            class="form-control" 
+            id = "maximo"
+            [(ngModel)]="producto.max"
+            name = "max"
+            required
+            minlength="1"
+            maxlength="10"
+            placeholder ="La cantidad maxima en inventario:"
+            #max = "ngModel"
+            >
+            <div class="alert alert-danger" *ngIf= "max.invalid && (max.dirty || max.touched )">
+                <div *ngIf= "max.errors.required">
+                    Se debe tener al menos un producto de este tipo
+                </div>
+
+            </div>
+
+        </div>
+
+        <button class="btn btn-success" [disabled]= "!productoForm.form.valid">Guardar</button>
+
+    </form>
+
+</div>

@@ -1,0 +1,39 @@
+<h2>Lista Productos</h2>
+<table class="table table-striped">
+<thead class="table-dark">
+    <tr>
+        <th>Id</th>
+        <th class="text-center">Producto</th>
+        <th class="text-center">Disponible</th>
+        <th class="text-center">habilitado</th>
+        <th class="text-center">Mínimo</th>
+        <th class="text-center">Máximo</th>
+        <th class="text-center"> Opciones </th>
+
+    
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor= "let producto of productos">
+    <td>{{producto.id}}</td> 
+    <td class="text-center">{{producto.name}}</td>  
+    <td class="text-center">{{producto.inInventory}}</td> 
+    <td class="text-center">{{producto.enabled ? '✓' : '✗'}}</td> 
+    <!-- <td>
+        <span *ngIf="producto.enabled; else noCheck" class="bi bi-check text-success"></span>
+        <span *ngIf="!producto.enabled" class="bi bi-x text-danger"></span>
+    </td> -->
+    <td class="text-center">{{producto.min}}</td> 
+    <td class="text-center">{{producto.max}}</td> 
+    <td> <button (click)="actualizarProducto(producto.id)" class="btn btn-info">Editar</button>
+    <button (click)="eliminarProducto(producto.id)" class="btn btn-danger"  style="margin-left: 10px;">Eliminar</button>
+    <button (click)="detallesProducto(producto.id)" class="btn btn-primary"  style="margin-left: 10px;">Detalles</button>
+    
+    </td>
+    </tr>
+</tbody>
+
+</table>
+
+
+ 

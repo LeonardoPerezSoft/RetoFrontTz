@@ -1,0 +1,98 @@
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center">Registro de compra</h3>
+    <form (ngSubmit)="onSubmit()" #compraForm= "ngForm">
+        
+        <div class="form-group">
+            <label>Nombre de cliente :</label>
+            <input type="text" 
+            class="form-control" 
+            id = "nombre_cliente"
+            [(ngModel)]="compra.clientName"
+            name = "clientName"
+            required
+            minlength="4"
+            maxlength="15"
+            placeholder ="Escriba el nombre del cliente :"
+            #clientName = "ngModel">
+
+            <div class="alert alert-danger" *ngIf= "clientName.invalid && (clientName.dirty || clientName.touched )">
+                <div *ngIf= "clientName.errors.required">
+                    El nombre del productodebe tener como minimo 4 caracteres
+                </div>
+                
+
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <label>Tipo de documento :</label>
+            <select class="form-control" 
+            id = "identificacion" 
+            [(ngModel)]="compra.idType" 
+            name = "idType" equired
+            #idType = "ngModel">
+
+                <option value="CC">Cedula de ciudadania</option>
+                <option value="CE">Cedula de extranjeria</option>
+                <option value="TI">Tarjeta de identidad</option>
+                <option value="CD">Pasaporte</option>
+            </select>
+
+           
+
+
+            
+        </div>
+       
+        <div class="form-group">
+            <label>Numero de indentificación :</label>
+            <input type="text" 
+            class="form-control" 
+            id = "dni_holi"
+            [(ngModel)]="compra.dni"
+            name = "dni"
+            required
+            minlength="1"
+            maxlength="10"
+            placeholder ="Ingrese número de indentificación"
+            #dni = "ngModel"
+            >
+            <div class="alert alert-danger" *ngIf= "dni.invalid && (dni.dirty || dni.touched )">
+                <div *ngIf= "dni.errors.required">
+                    Ingrese un numero de indentificación
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <label>ID del Producto:</label>
+            <input type="number"
+             class="form-control"
+            [(ngModel)]="productId" 
+            name="productId" 
+            required 
+            placeholder="Ingrese el ID del producto" 
+            #inputProductId = "ngModel">
+            
+        </div>
+      
+          <div class="form-group">
+            <label>Cantidad:</label>
+            <input type="number" 
+            class="form-control" 
+            [(ngModel)]="quantity" 
+            name="quantity" 
+            required
+            placeholder="Ingrese la cantidad"
+            #inputQuantity = "ngModel">
+                         
+           </div>
+
+        <button class="btn btn-success" [disabled]= "!compraForm.form.valid">Guardar</button>
+
+    </form>
+
+</div>
